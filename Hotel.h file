@@ -1,0 +1,110 @@
+//Author: J.Chevannes 
+
+#include<iostream>
+#include<string.h>
+#include<conio.h>
+#include<iomanip>
+using namespace std;
+
+//Class Interface
+
+class HotelRoom
+{
+	private:
+		int RoomNumber;
+		int RoomCapacity;
+		double RoomRate;
+		int OccupancyStatus;
+		
+	
+	public:
+		HotelRoom(); //Default Constructor
+		HotelRoom(int RoomNumber1, int RoomCapacity1, double RoomRate1 ); //Primary Constructor
+		int setOccupancyStatus(int OccupancyStatus1); //Mutator function
+		void setRoomRate(double RoomRate1); //Mutator function
+		int getRoomNumber(); //Accessor to function
+		int getRoomCapacity(); //Acccessor to function
+		int getOccupancyStatus(); //Accessor to function
+		double getRoomRate(); //Accessor to function
+		void display();
+		void mainMenu();
+	
+
+};
+
+// Class Implementations
+
+HotelRoom::HotelRoom() //Default Constructor
+{
+	int	RoomNumber[3] = {349, 147, 10};
+	int RoomCapacity[3] = {4, 2, 1} ;
+	int OccupancyStatus[3] = {0};
+	
+}
+
+//Primary Constructor
+HotelRoom::HotelRoom(int RoomNumber1, int RoomCapacity1, double RoomRate1)
+{
+	RoomNumber = RoomNumber1;
+	RoomCapacity = RoomCapacity1;
+	RoomRate = RoomRate1;
+}
+
+//Mutator function
+int HotelRoom::setOccupancyStatus(int OccupancyStatus1)
+{
+
+	if(OccupancyStatus1 <= RoomCapacity)
+		OccupancyStatus = OccupancyStatus1;
+	else
+		return -1;
+}
+
+//Mutator function
+void HotelRoom::setRoomRate(double RoomRate1)
+{
+	RoomRate = RoomRate1;
+}
+
+//Accessor to function
+int HotelRoom::getRoomNumber()
+{
+	return RoomNumber;
+}
+
+//Accessor to function
+int HotelRoom::getRoomCapacity()
+{
+	return RoomCapacity;
+}
+
+//Accessor to function
+int HotelRoom::getOccupancyStatus()
+{
+	return OccupancyStatus;
+}
+
+//Accessor to function
+double HotelRoom::getRoomRate()
+{
+	return RoomRate;
+}
+
+void HotelRoom::display()
+{
+	cout<< " Room Number "<<setw(20); // Set the coloum width betwwen each heading to 20 spaces between them
+	cout<< " Capacity "<<setw(20);
+	cout<< " Room Rate($) "<<setw(20);
+	cout<< " Occupancy Status "<<setw(20);
+}
+
+void HotelRoom::mainMenu()
+{
+	cout<<"Welcome to Lavish Get-Away Hotel Main Menu"<<endl;
+	cout<<"1. Add Room "<<endl;
+	cout<<"2. Reserve a Room "<<endl;
+	cout<<"3. Modify a Room "<<endl;
+	cout<<"4. View a Room "<<endl;
+	cout<<"5. Exit "<<endl;
+}
+	
